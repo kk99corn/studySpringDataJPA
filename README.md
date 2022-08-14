@@ -45,7 +45,9 @@
                 - 삭제: delete…By, remove…By 반환타입 long
                 - DISTINCT: findDistinct, findMemberDistinctBy
                 - LIMIT: findFirst3, findFirst, findTop, findTop3
-        2. 메소드 이름으로 JPA NamedQuery 호출
+        2. 메소드 이름으로 JPA @NamedQuery 호출
+            - 컴파일시점에 Query 구문오류를 파악하는 장점이 있음
+            - but, 잘 안씀.. why? repository @Query가 더 강력 
         3. @Query 어노테이션을 사용해서 repository 인터페이스에 쿼리 직접 정의
         4. 파라미터 바인딩
         5. 반환 타입
