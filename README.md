@@ -49,6 +49,7 @@
             - 컴파일시점에 Query 구문오류를 파악하는 장점이 있음
             - but, 잘 안씀.. why? repository @Query가 더 강력 
         3. @Query 어노테이션을 사용해서 repository 인터페이스에 쿼리 직접 정의
+            - @NamedQuery와 동일하게 컴파일시점에서 Query 구문오류를 파악 가능하다.
         4. 파라미터 바인딩
         5. 반환 타입
         6. 페이징과 정렬
