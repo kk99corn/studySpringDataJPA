@@ -25,3 +25,30 @@
     - JPQL: Java Persistence Query Language
       - JPQL은 엔티티 객체를 대상으로 쿼리를 질의
  - Optional.ofNullable: 값이 null일수도있다.
+
+
+ - Spring Data JPA
+    - interface만 선언하면 동작하는 이유
+        - interface(JpaRepository를 extends하는)만 보고 spring data jpa가 구현체(proxy 객체)를 만들어서 꽂아줌
+        - https://velog.io/@kshired/Spring-%EC%99%9C-JPARepository%EB%8A%94-Repository%EA%B0%80-%ED%95%84%EC%9A%94-%EC%97%86%EC%9D%84%EA%B9%8C-deep-dive-%ED%95%B4%EB%B3%B4%EA%B8%B0
+            1. JpaRepositry 를 impl 하는 클래스는 EnableJpaRepositories + JpaRepositoriesRegisterar에 의해 자동으로 빈으로 등록된다.
+            2. JpaRepository 인터페이스는 @NoRepositoryBean 어노테이션에 의해 인터페이스 그 자체가 빈으로 등록될 수 없게 설정해준다.
+            3. NoRepositoryBean 을 설정하면, 여러 과정을 거쳐 excludeFilters를 이용하여 NoRepositoryBean 어노테이션이 달린 애들을 알아서 걸러준다.
+    - 쿼리 메소드 필터 조건
+        - Spring Data JPA 공식 문서: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
+    - 쿼리 메소드 기능
+        1. 메소드 이름으로 쿼리 생성
+            - 메소드 이름을 분석해서 JPQL 쿼리 실행
+                - 조회: find…By ,read…By ,query…By get…By
+                - COUNT: count…By 반환타입 long
+                - EXISTS: exists…By 반환타입 boolean 
+                - 삭제: delete…By, remove…By 반환타입 long
+                - DISTINCT: findDistinct, findMemberDistinctBy
+                - LIMIT: findFirst3, findFirst, findTop, findTop3
+        2. 메소드 이름으로 JPA NamedQuery 호출
+        3. @Query 어노테이션을 사용해서 repository 인터페이스에 쿼리 직접 정의
+        4. 파라미터 바인딩
+        5. 반환 타입
+        6. 페이징과 정렬
+        7. 벌크성 수정 쿼리
+        8. @EntityGraph
