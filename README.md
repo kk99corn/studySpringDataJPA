@@ -22,3 +22,6 @@
  - JPA
     - @ManyToOne fetch타입 LAZY(지연로딩)으로 변경(default: EAGER(즉시로딩))
       - fetch타입 EAGER(즉시로딩)으로 사용시 실무에서 성능최적화 힘듦
+    - JPQL: Java Persistence Query Language
+      - JPQL은 엔티티 객체를 대상으로 쿼리를 질의
+ - Optional.ofNullable: 값이 null일수도있다.
