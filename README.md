@@ -78,4 +78,10 @@
     - JPA Lock
         - select ... for update
     - 확장 기능
-        - 
+        - 순수 JPA - 주요 이벤트 어노테이션
+            - @PrePersist
+            - @PostPersist
+            - @PreUpdate
+            - @PostUpdate
+        - Spring Data JPA
+            - @EnableJpaAuditing 필수로 메인 클래스에 선언
