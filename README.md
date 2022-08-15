@@ -10,9 +10,8 @@
     - Spring Data JPA
     - H2 Database
     - Lombok
- 
+---------------
 ## Study Notes 
-### 08.14 - 1일차 
  - @Transactional: JPA CUD는 무조건 트랜잭션안에서 실행되야함.
  - 동일한 Transaction 안에서는 영속성 컨텐츠들의 동일성을 보장함.
  - Lombok
@@ -50,7 +49,11 @@
             - but, 잘 안씀.. why? repository @Query가 더 강력 
         3. @Query 어노테이션을 사용해서 repository 인터페이스에 쿼리 직접 정의
             - @NamedQuery와 동일하게 컴파일시점에서 Query 구문오류를 파악 가능하다.
+            - 주의! DTO로 직접 조회 하려면 JPA의 new 명령어를 사용해야 한다. 그리고 다음과 같이 생성자가 맞는
+              DTO가 필요하다. (JPA와 사용방식이 동일하다.)
         4. 파라미터 바인딩
+            - 위치 기반(가급적 실무에서 사용하지 않아야한다.)
+            - 이름 기반(추천)
         5. 반환 타입
         6. 페이징과 정렬
         7. 벌크성 수정 쿼리
