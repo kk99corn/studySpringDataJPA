@@ -57,5 +57,9 @@
         5. 반환 타입
             - 반환타입 컬렉션인 경우 주의점: 조회되는 값이 없어도 Empty Collection으로 반환됨
         6. 페이징과 정렬
+            - Page: 추가 count 쿼리 결과를 포함하는 페이징
+              - @Query -> countQuery를 재정의하여, 성능 최적화 가능
+            - Slice: 추가 count 쿼리 없이 다음 페이지만 확인 가능(내부적으로 limit + 1조회)
+            - List(자바 컬렉션): 추가 count 쿼리 없이 결과만 반환
         7. 벌크성 수정 쿼리
         8. @EntityGraph
