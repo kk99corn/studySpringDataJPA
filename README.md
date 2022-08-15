@@ -85,3 +85,12 @@
             - @PostUpdate
         - Spring Data JPA
             - @EnableJpaAuditing 필수로 메인 클래스에 선언
+    - Web 확장
+        - 페이징
+            - 예) /members?page=0&size=3&sort=id,desc&sort=username,desc
+            - page: 현재 페이지, 0부터 시작한다.
+            - size: 한 페이지에 노출할 데이터 건수
+            - sort: 정렬 조건을 정의한다. 예) 정렬 속성,정렬 속성...(ASC | DESC), 정렬 방향을 변경하고 싶으면 sort
+            - 파라미터 추가 (asc 생략 가능)
+        - application.yml에서 global 설정 변경 가능
+        - @PageableDefault()로 지역 설정 변경 가능(global보다 우선 적용)
