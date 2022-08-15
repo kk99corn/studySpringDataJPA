@@ -62,4 +62,9 @@
             - Slice: 추가 count 쿼리 없이 다음 페이지만 확인 가능(내부적으로 limit + 1조회)
             - List(자바 컬렉션): 추가 count 쿼리 없이 결과만 반환
         7. 벌크성 수정 쿼리
+            - 주의!: 벌크연산하는 경우, DB에 다이렉트로 값이 변경되나, 영속성 컨텍스트 데이터는 수정이 안됨.
+                1. 벌크연산 이후 영속성 컨텍스트를 다 날려줘야함(초기화)(EntityManager.clear())
+                2. @Modifying(clearAutomatically = true) 자동으로 영속성 컨텍스트 클리어
+            - spring data jpa
+                - @Modifying: update 쿼리에선 modifying 넣어줘야한다.
         8. @EntityGraph
