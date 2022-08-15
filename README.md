@@ -72,3 +72,8 @@
                 - 연관된(관계가 있는) 데이터를 한번에 다 조회
             - @EntityGraph(attributePaths = {"team"})
                 - EntityGraph는 fetch join을 쉽게 해준다.
+    - JPA Hint
+        - JPA 쿼리 힌트(SQL 힌트가 아니라 JPA 구현체(예시: hibernate)에게 제공하는 힌트)
+            - 실무에서 잘 사용하지않음.
+    - JPA Lock
+        - select ... for update
