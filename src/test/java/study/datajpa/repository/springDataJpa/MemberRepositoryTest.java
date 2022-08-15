@@ -313,4 +313,46 @@ class MemberRepositoryTest {
 		List<Member> memberCustom = memberRepository.findMemberCustom();
 		System.out.println("memberCustom = " + memberCustom.toString());
 	}
+
+	@Test
+	public void projections() {
+		// given
+		Team teamA = new Team("teamA");
+		entityManager.persist(teamA);
+
+		Member member1 = new Member("m1", 10, teamA);
+		Member member2 = new Member("m2", 10, teamA);
+		entityManager.persist(member1);
+		entityManager.persist(member2);
+
+		entityManager.flush();
+		entityManager.clear();
+
+		// when
+		List<UsernameOnly> result = memberRepository.findProjectionsByUsername("m1");
+		for (UsernameOnly usernameOnly : result) {
+			System.out.println("usernameOnly = " + usernameOnly);
+		}
+	}
+
+	@Test
+	public void projections2() {
+		// given
+		Team teamA = new Team("teamA");
+		entityManager.persist(teamA);
+
+		Member member1 = new Member("m1", 10, teamA);
+		Member member2 = new Member("m2", 10, teamA);
+		entityManager.persist(member1);
+		entityManager.persist(member2);
+
+		entityManager.flush();
+		entityManager.clear();
+
+		// when
+		List<UsernameOnlyDto> result = memberRepository.findProjectionsDtoByUsername("m1");
+		for (UsernameOnlyDto usernameOnly : result) {
+			System.out.println("usernameOnly = " + usernameOnly.getUsername());
+		}
+	}
 }
