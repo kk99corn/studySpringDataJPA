@@ -142,3 +142,6 @@
                 - 실무의 복잡한 쿼리를 해결하기에는 한계가 있다.
                 - 실무에서는 단순할 때만 사용하고, 조금만 복잡해지면 QueryDSL을 사용하자
         - Native Query
+            - 가급적 네이티브 쿼리는 사용하지 않는게 좋음, 정말 어쩔 수 없을 때 사용..
+            - @Query(value = "select * from member where username = ?", nativeQuery = true)
+    

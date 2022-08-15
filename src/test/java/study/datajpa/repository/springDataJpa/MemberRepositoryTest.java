@@ -355,4 +355,23 @@ class MemberRepositoryTest {
 			System.out.println("usernameOnly = " + usernameOnly.getUsername());
 		}
 	}
+
+	@Test
+	public void nativeQuery() {
+		// given
+		Team teamA = new Team("teamA");
+		entityManager.persist(teamA);
+
+		Member member1 = new Member("m1", 10, teamA);
+		Member member2 = new Member("m2", 10, teamA);
+		entityManager.persist(member1);
+		entityManager.persist(member2);
+
+		entityManager.flush();
+		entityManager.clear();
+
+		// when
+		Member m1 = memberRepository.findByNativeQuery("m1");
+		System.out.println("m1 = " + m1);
+	}
 }
