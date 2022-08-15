@@ -68,3 +68,7 @@
             - spring data jpa
                 - @Modifying: update 쿼리에선 modifying 넣어줘야한다.
         8. @EntityGraph
+            - fetch join? @Query("select m from Member m left join fetch m.team")
+                - 연관된(관계가 있는) 데이터를 한번에 다 조회
+            - @EntityGraph(attributePaths = {"team"})
+                - EntityGraph는 fetch join을 쉽게 해준다.
