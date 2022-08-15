@@ -146,4 +146,20 @@ class MemberRepositoryTest {
 		List<Member> memberList = memberRepository.findByNames(Arrays.asList("AAA", "BBB"));
 		System.out.println("memberList = " + memberList);
 	}
+
+	@Test
+	public void returnType() {
+		Member m1 = new Member("AAA", 10);
+		Member m2 = new Member("BBB", 20);
+		memberRepository.save(m1);
+		memberRepository.save(m2);
+
+		// 반환타입 컬렉션인 경우 주의점: 조회되는 값이 없어도 Empty Collection으로 반환됨
+		List<Member> aaa = memberRepository.findListByUsername("AAA");
+		System.out.println("aaa.size() = " + aaa.size());
+
+		Member aaa1 = memberRepository.findMemberByUsername("AAA");
+		Optional<Member> aaa2 = memberRepository.findOptionalByUsername("AAA");
+
+	}
 }
