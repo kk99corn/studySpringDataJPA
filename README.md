@@ -77,3 +77,5 @@
             - 실무에서 잘 사용하지않음.
     - JPA Lock
         - select ... for update
+    - 확장 기능
+        - 
