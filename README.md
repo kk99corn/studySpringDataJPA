@@ -121,10 +121,10 @@
 
 
    - 나머지 기능들
-        - Specifications(명세) - 실무에서 잘 안씀
+        - Specifications(명세) - 실무에서 잘 안씀!
             - 책 도메인 주도 설계(Domain Driven Design)는 SPECIFICATION(명세)라는 개념을 소개 
             - 스프링 데이터 JPA는 JPA Criteria를 활용해서 이 개념을 사용할 수 있도록 지원
-        - Query By Example - 실무에서 잘 안씀
+        - Query By Example - 실무에서 잘 안씀!
         - Projections
             - Entity 대신에 DTO를 편하게 조회하기 위해 사용
             - 전체 엔티티가 아니라 만약 회원 이름만 딱 조회하고 싶으면
